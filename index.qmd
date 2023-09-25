@@ -1,5 +1,30 @@
 ---
-title: "p-park6.github.io"
+title: "Patricia Park"
+image: pics/headshot_image.jpg
+about:
+  template: jolla
+  image-shape: rectangle
+  image-width: 15em
+  links: 
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/patricia-park-548810221
+      icon: linkedin
+    - text: Github
+      href: https://github.com/p-park6
+      icon: github
+    - text: Email
+      href: mailto::p_park@ucsb.edu
+      icon: envelope
 ---
 
-Hi this is patty welcome to my website!
+Hi, my name is Patty and welcome to my website! I'll be updating this website to showcase the projects that I worked on as well as what I'll be doing in the future! Keep checking back to see what's new!
+
+## Education
+
+BS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)
+
+MEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)
+
+## Projects
+
+Coming soon!

@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "p-park6.github.io",
+    "title": "Patricia Park",
     "section": "",
-    "text": "Hi this is patty welcome to my website!"
+    "text": "Hi, my name is Patty and welcome to my website! I’ll be updating this website to showcase the projects that I worked on as well as what I’ll be doing in the future! Keep checking back to see what’s new!"
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,19 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Patricia Park",
+    "section": "Education",
+    "text": "Education\nBS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)\nMEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Patricia Park",
+    "section": "Projects",
+    "text": "Projects\nComing soon!"
   }
 ]

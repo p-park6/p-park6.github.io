@@ -1,1 +1,20 @@
 /* css styles */
+h1 {
+  text-aline: center;
+  background-color: #49bf96;
+  border-radius: 25px;
+}
+
+a {
+  color: purple;
+  font-style; italic;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.important-text {
+  color: red;
+  font-size: 30px;
+}

@@ -11,13 +11,21 @@ website:
       - about.qmd
       - href: resources.qmd
         text: Resources
+    right:
+      - href: resume/resume_no_number.pdf
+        text: CV
+  page-footer: 
+    background: light
+    left: "Copyright 2023, Patricia Park"
+
 
 format:
   html:
-    theme: 
-      light: Morph
-      dark: solar
-    css: styles.css
+    theme: styles.scss
+      #light: Morph
+      #dark: solar
+    #css: styles.css
+    mainfont: Fira Sans
     toc: true
     page-layout: full
 

@@ -7,3 +7,6 @@ About this site
 ```{r}
 1 + 1
 ```
+
+
+<p class ="title center-text"> this will be red and in the center </p>

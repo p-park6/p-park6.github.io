@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+
+// Import font-size: 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');;
+
+// Colors
+$pink: #9f508c;
+$pink2: #eea8dc;
+$pink3: #e0c4d9;
+$pink4: #f6d9ef;
+
+
+// base document Colors
+$navbar-bg: $pink2;
+$navbar-fg: $pink;
+$body-bg: $pink3;
+$footer-bg: $pink4;
+
+/*-- scss:rules --*/
+
+h1, h2 {
+  letter-spacing: 5px;
+  color: $pink;
+}
+
+.title {
+  color: red;
+}
+
+.center-text {
+  text-align: center;
+}

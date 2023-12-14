@@ -1,0 +1,11 @@
+{
+  "hash": "b2420b9dfcf1e189b458e740d1662485",
+  "result": {
+    "markdown": "---\ntitle: \"Analysis of the Air Quality caused by the Thomas Fire\"\ndescription: \"A personal analysis on air quality in Santa Barbara County and visualizing the burn area caused by the Thomas Fire\"\nauthor:\n  - name: Patty Park\n    url: https://p-park6.github.io/\n    #orcid\n    affiliation: MEDS\n    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science\ndate: 12-13-2023\ncategories: \n  - quarto\n  - MEDS\n  - workshop\nbibliography: ../references.bib\ncitation: \n  url: https://p-park6.github.io/blog/2023-12-22-aqi-thomas-fire/\n#image: images/image name\n#draft: true\n---\n\nIn the latter half of 2017, multiple fires broke out in the state of California. This included the Thomas fire, a devastating fire that burned a total of 281,893 acres including hundreds of buildings as well as taking the lives of 2 people. [https://vcfd.org/news/vcfd-determines-cause-of-the-thomas-fire/] This fire also disrupted everyday life for Santa Barbara county residence. Schools were cancelled, and almost all shops were closed in Santa Barbara.\n\nThis story hits close to home as my family was one of those that was impacted by the fires. My family runs a business on State Street, and with that being our main source of income, we had to stay open for the few people that would come visit downtown. Additionally after the fires, heavy rain came in the area and flooded the 101 freeway, connecting Ventura and Los Angeles county from the Santa Barbara county.\n\nWith wanting to understand the impacts of air quality caused by the Thomas fires as well as my personal connection to the event, I'll be doing a deep dive into how the Thomas fire impacted the air quality in Santa Barbara County, as well as create a visual map of the area burned by the fire.\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nx = 1+2\n\nx\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n3\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

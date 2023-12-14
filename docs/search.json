@@ -7,6 +7,41 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
+    "objectID": "blog/2023-10-23-my-first-post/index.html#second-section",
+    "href": "blog/2023-10-23-my-first-post/index.html#second-section",
+    "title": "My first Blog Post",
+    "section": "second section",
+    "text": "second section"
+  },
+  {
+    "objectID": "blog/2023-10-23-my-first-post/index.html#last-section",
+    "href": "blog/2023-10-23-my-first-post/index.html#last-section",
+    "title": "My first Blog Post",
+    "section": "last section",
+    "text": "last section\nsee some things to arrive here soon! 1\nThis blog was made with the help of this blog post (Csik 2022)\nThis is a cool paper I read! (Gaynor et al. 2022)\n\nx &lt;- 3+2\nprint(x)\n\n[1] 5"
+  },
+  {
+    "objectID": "blog/2023-10-23-my-first-post/index.html#footnotes",
+    "href": "blog/2023-10-23-my-first-post/index.html#footnotes",
+    "title": "My first Blog Post",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nthis is my first footnote↩︎"
+  },
+  {
+    "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html",
+    "href": "blog/2023-12-12-aqi-thomas-fire/index.html",
+    "title": "Analysis of the Air Quality caused by the Thomas Fire",
+    "section": "",
+    "text": "Link to associated github is here. More information such as analysis and notebook can be found here."
+  },
+  {
+    "objectID": "Blog_file.html",
+    "href": "Blog_file.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Analysis of the Air Quality caused by the Thomas Fire\n\n\n\n\n\n\n\nPython\n\n\nMEDS\n\n\nData Visualization\n\n\n\n\nA personal analysis on air quality in Santa Barbara County and visualizing the burn area caused by the Thomas Fire\n\n\n\n\n\n\nDec 13, 2023\n\n\nPatty Park\n\n\n\n\n\n\n  \n\n\n\n\nMy first Blog Post\n\n\n\n\n\n\n\nquarto\n\n\nMEDS\n\n\nworkshop\n\n\n\n\nWhat you should expect from my blogs\n\n\n\n\n\n\nOct 23, 2023\n\n\nPatty Park\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Patricia Park",
@@ -26,5 +61,33 @@
     "title": "Patricia Park",
     "section": "Projects",
     "text": "Projects\nComing soon!"
+  },
+  {
+    "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html#datasets-used-in-this-analysis",
+    "href": "blog/2023-12-12-aqi-thomas-fire/index.html#datasets-used-in-this-analysis",
+    "title": "Analysis of the Air Quality caused by the Thomas Fire",
+    "section": "Datasets used in this analysis:",
+    "text": "Datasets used in this analysis:\n\nAir quality data\n\n\nAir Quality Data for 2017\nAir Quality Data for 2018\nInformation on AQI here\n\n\n[Landsat Collection 2 Surface](Reflectance(https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance)\n\n\nAdditional information: -Landsat Satellite homepage"
+  },
+  {
+    "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html#aqi-analysis",
+    "href": "blog/2023-12-12-aqi-thomas-fire/index.html#aqi-analysis",
+    "title": "Analysis of the Air Quality caused by the Thomas Fire",
+    "section": "AQI Analysis",
+    "text": "AQI Analysis\n\nLoad Necessary Packages\n\nimport os\nimport numpy as np\nimport pandas as pd\n\nimport geopandas as gpd\nimport xarray as xr\nimport rioxarray as rioxr\nimport matplotlib.patches as mpatches\nfrom matplotlib.markers import MarkerStyle\n\nfrom shapely import Point\nfrom shapely import Polygon\nfrom shapely import box\nimport matplotlib.pyplot as plt\nimport matplotlib.lines as mlines\n\n\n\nImport AQI Data\nAQI data was downloaded from the EPA website. Both 2017 and 2018 were download to see the air quality for both years. I’ll first go ahead and read in the data and see what the two datasets look like.\n\n# read in daily AQI 2017 zip file from url\naqi_17 = pd.read_csv(\"https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip\")\n\n# read in daily AQI 2018 zip file from url\naqi_18 = pd.read_csv(\"https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2018.zip\")\n\nprint(aqi_17.head())\nprint(aqi_18.head())\n\n\n\nAQI Data Wrangling\nNow that I have a sense of what is contained in these datasets, I want to simplify them into one dataset. However, the data provided gives us information for the whole country. Since we are focusing on Santa Barbara County AQI, I’ll go ahead and join them into one dataset using the concat function as well as subset for Santa Barbara county. Then I’ll go ahead and filter for columns that only include the information I am interested in. I’ll also go ahead and make sure that the date column is in datetime to make working with dates easier.\n\n#join the two datasets together\naqi = pd.concat([aqi_17, aqi_18])\n\n# change column names to lowercase and replace spaces with '_'\naqi.columns = aqi.columns.str.lower().str.replace(' ','_')\n\n#filter for observations that are in Santa Barbara County\naqi_sb = aqi[aqi['county_name'] == 'Santa Barbara']\n\n#remove not needed columns from the data frame\naqi_sb = aqi_sb.drop(columns=['state_name','county_name','state_code','county_code'])\n\n# change date type to be in datetime object (can be ran only one time)\naqi_sb.date = pd.to_datetime(aqi_sb.date)\n\n#change index to be set to date\naqi_sb = aqi_sb.set_index('date')\n\n\n\nAQI data visualization\nNow we have a filtered dataset, I’ll go ahead and use that to make a graph, visualizing the air quality over the two years. I’ll also go ahead and calculate a 5 day rolling average to see if the air quality during that time was significant or not.\n\n#create a new column that is the 5 day rolling average mean\naqi_sb['five_day_average'] = aqi_sb.aqi.rolling('5D').mean()\n\n#Plot data\naqi_sb.plot(y = ['aqi', 'five_day_average'], #plot both aqi and five_day_average column\n           title = 'AQI in Santa Barbara', #add title to graph\n           xlabel = 'Year', #add x label to graph\n           ylabel = 'Air Quality Index (AQI)', #add y label to graph\n           color = {'aqi': 'blue', #add blue to aqi line\n                    'five_day_average': 'orange' #add orange to five_day_average line\n                   },\n           )\n\n\nTakeaways: At around December 2017, There is a large spike in the AQI with both the daily and 5 day average. Surprisingly, there in an increase in AQI at January 2017. I assume there was a fire at the beginning of that year. However, looking at the 5 day rolling average, it seemed that the fire in 2018 (Thomas Fire) has a significant impact towards the AQI compared to last year’s 5 day rolling average."
+  },
+  {
+    "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html#thomas-fire-area-burn-analysis",
+    "href": "blog/2023-12-12-aqi-thomas-fire/index.html#thomas-fire-area-burn-analysis",
+    "title": "Analysis of the Air Quality caused by the Thomas Fire",
+    "section": "Thomas Fire area burn Analysis",
+    "text": "Thomas Fire area burn Analysis\nSame as before, let’s go ahead and load in our data needed for this analysis. For this step, I’ll also go ahead and do everything in one code chuck as it follows a similar pattern as seen above. You’ll see that I did a step pertaining to squeezing and dropping a band. That is because this is a raster dataset. If the band is not dropped, you will not be able to map it.\n\n# Read in bands dataset\n#create pathway\nca_bands_fp = os.path.join(os.getcwd(),'data','landsat8-2018-01-26-sb-simplified.nc')\n#read data using pathway\nca_fires_bands_2017 = rioxr.open_rasterio(ca_bands_fp)\n\n#get rid of band in ca_fires_band_2017\n# original dimensions and coordinates\nprint('original dimensions: ', ca_fires_bands_2017.dims,'\\n')\n\n# remove length 1 dimension (band)\nca_fires_bands_2017 = ca_fires_bands_2017.squeeze()\nprint('removed band from dimensions: ', ca_fires_bands_2017.dims,'\\n')\n\n# remove coordinates associated to band\nca_fires_bands_2017 = ca_fires_bands_2017.drop('band')\nprint('new dimensions: ', ca_fires_bands_2017.dims)\n\n                     \n#change column names:\n#make columns lower case\nca_fires_perimeter_2017.columns = ca_fires_perimeter_2017.columns.str.lower()\n\n#change crs to the bands raster data\nca_fires_perimeter_2017 = ca_fires_perimeter_2017.to_crs(ca_fires_bands_2017.rio.crs)\n\n#create thomas fire perimeter\nthomas_perimeter = ca_fires_perimeter_2017[ca_fires_perimeter_2017['fire_name']=='THOMAS']\n\n\n#create map\n#plot an empty plot\nfig, ax = plt.subplots(figsize = (8,6))\n\n\n#plot CA fire bands map as the base\nca_fires_bands_2017[['swir22', #subset for the three wanted bands\n                     'nir08', \n                     'red']].to_array().plot.imshow(ax = ax,\n                                                    robust = True)\n\n#plot thomas fire perimeter over base map\nthomas_perimeter.plot(ax = ax, edgecolor = \"red\", color = 'none') #plot thomas_perimeter\nthomas_perimeter_patches = mpatches.Patch( color = \"red\", #create label for legend and change color\n                                    label = \"Thomas Fire Perimeter\") #set label\n\n#set title for map\nax.set_title('Thomas Fire Perimeter in 2017',\nfontsize=20) #change font size\n\n#add legend onto map\nax.legend(handles = [thomas_perimeter_patches], frameon=False, loc='upper left', bbox_to_anchor = (1, 1))\n\n\nTakeaways: Here we can see the amount of area that was burned by the Thomas fire. We can notice that there were some burnt area on the left, but none nearly as big as the Thomas Fire burn. This large area of burn would almost make sense why a mudslide followed in its tracks. The open space caused by the fire made it more possible for the surface soil to be washed away as there were no plants to keep the soil intacted."
+  },
+  {
+    "objectID": "blog/trial/test.html",
+    "href": "blog/trial/test.html",
+    "title": "Patricia Park",
+    "section": "",
+    "text": "will this work?"
   }
 ]

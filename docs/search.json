@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "Blog_file.html",
+    "href": "Blog_file.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Analysis of the Air Quality caused by the Thomas Fire\n\n\n\n\n\n\n\nPython\n\n\nMEDS\n\n\nData Visualization\n\n\n\n\nA personal analysis on air quality in Santa Barbara County and visualizing the burn area caused by the Thomas Fire\n\n\n\n\n\n\nDec 13, 2023\n\n\nPatty Park\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -7,60 +14,11 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "blog/2023-10-23-my-first-post/index.html#second-section",
-    "href": "blog/2023-10-23-my-first-post/index.html#second-section",
-    "title": "My first Blog Post",
-    "section": "second section",
-    "text": "second section"
-  },
-  {
-    "objectID": "blog/2023-10-23-my-first-post/index.html#last-section",
-    "href": "blog/2023-10-23-my-first-post/index.html#last-section",
-    "title": "My first Blog Post",
-    "section": "last section",
-    "text": "last section\nsee some things to arrive here soon! 1\nThis blog was made with the help of this blog post (Csik 2022)\nThis is a cool paper I read! (Gaynor et al. 2022)\n\nx &lt;- 3+2\nprint(x)\n\n[1] 5"
-  },
-  {
-    "objectID": "blog/2023-10-23-my-first-post/index.html#footnotes",
-    "href": "blog/2023-10-23-my-first-post/index.html#footnotes",
-    "title": "My first Blog Post",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nthis is my first footnote↩︎"
-  },
-  {
     "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html",
     "href": "blog/2023-12-12-aqi-thomas-fire/index.html",
     "title": "Analysis of the Air Quality caused by the Thomas Fire",
     "section": "",
     "text": "Link to associated github is here. More information such as analysis and notebook can be found here."
-  },
-  {
-    "objectID": "Blog_file.html",
-    "href": "Blog_file.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Analysis of the Air Quality caused by the Thomas Fire\n\n\n\n\n\n\n\nPython\n\n\nMEDS\n\n\nData Visualization\n\n\n\n\nA personal analysis on air quality in Santa Barbara County and visualizing the burn area caused by the Thomas Fire\n\n\n\n\n\n\nDec 13, 2023\n\n\nPatty Park\n\n\n\n\n\n\n  \n\n\n\n\nMy first Blog Post\n\n\n\n\n\n\n\nquarto\n\n\nMEDS\n\n\nworkshop\n\n\n\n\nWhat you should expect from my blogs\n\n\n\n\n\n\nOct 23, 2023\n\n\nPatty Park\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Patricia Park",
-    "section": "",
-    "text": "Hi, my name is Patty and welcome to my website! I’ll be updating this website to showcase the projects that I worked on as well as what I’ll be doing in the future! Keep checking back to see what’s new!"
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Patricia Park",
-    "section": "Education",
-    "text": "Education\nBS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)\nMEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Patricia Park",
-    "section": "Projects",
-    "text": "Projects\nComing soon!"
   },
   {
     "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html#datasets-used-in-this-analysis",
@@ -84,10 +42,24 @@
     "text": "Thomas Fire area burn Analysis\nSame as before, let’s go ahead and load in our data needed for this analysis. For this step, I’ll also go ahead and do everything in one code chuck as it follows a similar pattern as seen above. You’ll see that I did a step pertaining to squeezing and dropping a band. That is because this is a raster dataset. If the band is not dropped, you will not be able to map it.\n\n# Read in bands dataset\n#create pathway\nca_bands_fp = os.path.join(os.getcwd(),'data','landsat8-2018-01-26-sb-simplified.nc')\n#read data using pathway\nca_fires_bands_2017 = rioxr.open_rasterio(ca_bands_fp)\n\n#get rid of band in ca_fires_band_2017\n# original dimensions and coordinates\nprint('original dimensions: ', ca_fires_bands_2017.dims,'\\n')\n\n# remove length 1 dimension (band)\nca_fires_bands_2017 = ca_fires_bands_2017.squeeze()\nprint('removed band from dimensions: ', ca_fires_bands_2017.dims,'\\n')\n\n# remove coordinates associated to band\nca_fires_bands_2017 = ca_fires_bands_2017.drop('band')\nprint('new dimensions: ', ca_fires_bands_2017.dims)\n\n                     \n#change column names:\n#make columns lower case\nca_fires_perimeter_2017.columns = ca_fires_perimeter_2017.columns.str.lower()\n\n#change crs to the bands raster data\nca_fires_perimeter_2017 = ca_fires_perimeter_2017.to_crs(ca_fires_bands_2017.rio.crs)\n\n#create thomas fire perimeter\nthomas_perimeter = ca_fires_perimeter_2017[ca_fires_perimeter_2017['fire_name']=='THOMAS']\n\n\n#create map\n#plot an empty plot\nfig, ax = plt.subplots(figsize = (8,6))\n\n\n#plot CA fire bands map as the base\nca_fires_bands_2017[['swir22', #subset for the three wanted bands\n                     'nir08', \n                     'red']].to_array().plot.imshow(ax = ax,\n                                                    robust = True)\n\n#plot thomas fire perimeter over base map\nthomas_perimeter.plot(ax = ax, edgecolor = \"red\", color = 'none') #plot thomas_perimeter\nthomas_perimeter_patches = mpatches.Patch( color = \"red\", #create label for legend and change color\n                                    label = \"Thomas Fire Perimeter\") #set label\n\n#set title for map\nax.set_title('Thomas Fire Perimeter in 2017',\nfontsize=20) #change font size\n\n#add legend onto map\nax.legend(handles = [thomas_perimeter_patches], frameon=False, loc='upper left', bbox_to_anchor = (1, 1))\n\n\nTakeaways: Here we can see the amount of area that was burned by the Thomas fire. We can notice that there were some burnt area on the left, but none nearly as big as the Thomas Fire burn. This large area of burn would almost make sense why a mudslide followed in its tracks. The open space caused by the fire made it more possible for the surface soil to be washed away as there were no plants to keep the soil intacted."
   },
   {
-    "objectID": "blog/trial/test.html",
-    "href": "blog/trial/test.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Patricia Park",
     "section": "",
-    "text": "will this work?"
+    "text": "Hi, my name is Patty and welcome to my website! I’ll be updating this website to showcase the projects that I worked on as well as what I’ll be doing in the future! Keep checking back to see what’s new!"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Patricia Park",
+    "section": "Education",
+    "text": "Education\nBS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)\nMEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Patricia Park",
+    "section": "Projects",
+    "text": "Projects\nComing soon!"
   }
 ]

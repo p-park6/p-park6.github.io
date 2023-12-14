@@ -1,0 +1,14 @@
+{
+  "hash": "ceeb418e1c298d04a561921b2dd61a3c",
+  "result": {
+    "markdown": "---\ntitle: \"My first Blog Post\"\ndescription: \"What you should expect from my blogs\"\nauthor:\n  - name: Patty Park\n    url: https://p-park6.github.io/\n    #orcid\n    affiliation: MEDS\n    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science\ndate: 10-23-2023\ncategories: \n  - quarto\n  - MEDS\n  - workshop\nbibliography: ../references.bib\ncitation: \n  url: https://p-park6.github.io/blog/2023-10-23-my-first-post/\n#image: images/image name\n#draft: true\n---\n\n\n## first section\n\n## second section\n\n## last section\n\nsee some things to arrive here soon! [^1]\n\n[^1]: this is my first footnote\n\nThis blog was made with the help of this blog post [@csik2022]\n\nThis is a cool paper I read! [@gaynor2022]\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 3+2\nprint(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 5\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

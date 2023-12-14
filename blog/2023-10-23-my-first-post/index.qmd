@@ -16,7 +16,7 @@ bibliography: ../references.bib
 citation: 
   url: https://p-park6.github.io/blog/2023-10-23-my-first-post/
 #image: images/image name
-draft: true
+#draft: true
 ---
 
 ## first section
@@ -32,3 +32,12 @@ see some things to arrive here soon! [^1]
 This blog was made with the help of this blog post [@csik2022]
 
 This is a cool paper I read! [@gaynor2022]
+
+```{python}
+import numpy as np
+x <- 3+2
+print(x)
+
+```
+
+

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -59,7 +59,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -72,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -145,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Data Visualization">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="MEDS">MEDS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="quarto">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="workshop">workshop <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -172,25 +173,106 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1701895502336" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1702519570956" data-listing-reading-time-sort="0">
 <div class="thumbnail">
-<p><a href="./blog/trial-python-render/STAC-search.html"> <p class="card-img-top"><img src="https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=naip&item=ca_m_3411935_sw_11_060_20200521&assets=image&asset_bidx=image|1%2C2%2C3&format=png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./blog/trial/test.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
-<a href="./blog/trial-python-render/STAC-search.html">
+<a href="./blog/trial/test.html">
 <h3 class="no-anchor listing-title">
-Access
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-We use the <code>Client</code> function from the <code>pystac_client</code> package to access the catalog:
+
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./blog/trial-python-render/STAC-search.html"> </a>
+<a href="./blog/trial/test.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Python,MEDS,Data Visualization" data-listing-date-sort="1702454400000" data-listing-file-modified-sort="1702520260161" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./blog/2023-12-12-aqi-thomas-fire/index.html"> <p class="card-img-top"><img src="blog\2023-12-12-aqi-thomas-fire\aqi_in_santa_barbara.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./blog/2023-12-12-aqi-thomas-fire/index.html">
+<h3 class="no-anchor listing-title">
+Analysis of the Air Quality caused by the Thomas Fire
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
+MEDS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+</div>
+<a href="./blog/2023-12-12-aqi-thomas-fire/index.html">
+<div class="listing-description">
+<p>A personal analysis on air quality in Santa Barbara County and visualizing the burn area caused by the Thomas Fire</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./blog/2023-12-12-aqi-thomas-fire/index.html">
+<div class="listing-date">
+Dec 13, 2023
+</div>
+<div class="listing-author">
+Patty Park
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="quarto,MEDS,workshop" data-listing-date-sort="1698044400000" data-listing-file-modified-sort="1702454575660" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./blog/2023-10-23-my-first-post/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./blog/2023-10-23-my-first-post/index.html">
+<h3 class="no-anchor listing-title">
+My first Blog Post
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
+quarto
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
+MEDS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('workshop'); return false;">
+workshop
+</div>
+</div>
+<a href="./blog/2023-10-23-my-first-post/index.html">
+<div class="listing-description">
+<p>What you should expect from my blogs</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./blog/2023-10-23-my-first-post/index.html">
+<div class="listing-date">
+Oct 23, 2023
+</div>
+<div class="listing-author">
+Patty Park
+</div>
+</a>
 </div>
 </div>
 </div>

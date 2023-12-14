@@ -16,7 +16,7 @@ bibliography: ../references.bib
 citation: 
   url: https://p-park6.github.io/blog/2023-10-23-my-first-post/
 #image: images/image name
-#draft: true
+draft: true
 ---
 
 ## first section

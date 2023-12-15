@@ -16,7 +16,7 @@ bibliography: ../references.bib
 citation: 
   url: https://p-park6.github.io/blog/2023-12-15-nitrogen-analysis/
 #image: images/image name
-draft: true
+#draft: true
 ---
 
 # Overview

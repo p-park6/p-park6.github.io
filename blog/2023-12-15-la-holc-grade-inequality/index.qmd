@@ -1,6 +1,4 @@
 ---
-title: "LA-HOLC-grade-inequality"
-
 title: "Los Angeles County's history with HOLC grade inequality"
 description: "A brief view of how HOLC grading propelled the inequality in Los Angeles County"
 author:
@@ -20,4 +18,8 @@ citation:
 #image: images/image name
 draft: true
 ---
+
+# Overview
+
+
 

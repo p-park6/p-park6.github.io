@@ -11,7 +11,14 @@
     "href": "blog/2023-12-15-la-holc-grade-inequality/index.html",
     "title": "Los Angeles County’s history with HOLC grade inequality",
     "section": "",
-    "text": "Overview\n\n\n\n\nCitationBibTeX citation:@online{park2023,\n  author = {Park, Patty},\n  title = {Los {Angeles} {County’s} History with {HOLC} Grade\n    Inequality},\n  date = {2023-12-15},\n  url = {https://p-park6.github.io/blog/2023-12-15-la-holc-grade-inequality/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nPark, Patty. 2023. “Los Angeles County’s History with HOLC Grade\nInequality.” December 15, 2023. https://p-park6.github.io/blog/2023-12-15-la-holc-grade-inequality/."
+    "text": "During the 1930’s the Home Owners’ Loan Corporation (HOLC), as part of the New Deal, rated neighborhoods based on their perceived safety for real estate investment. Their ranking system, (A (green), B (blue), C (yellow), D (red)) was then used to block access to loans for home ownership. While it was used to promote financial stimulation, it consequentially has been used for racial segregation, a history that is still visible in the United states. Informally known as “redlining”, this practice has had widely-documented consequences not only for community wealth, but also health.(Gee 2008) Redlined neighborhoods have less greenery(Nardone et al. 2021) and are hotter than other neighborhoods.(Hoffman, Shandas, and Pendleton 2020)\nThe National Community Reinvestment Coalition released a document highlighting what the redlining community is, how it has affected certain communities, and the potential impact gentrification has on these communities. 1 This study was able to take a deep dive into how this segregation impacts minority groups and the lack of investment in these communities to bring positive change.\nThis blog will cover a number of analysis including:\n\nVarious environmental factors that can impact a community’s wellbeing\nHow many census block group sites are in these redlining areas\nImpact on recreational activities based on HOLC grade groups\n\nThere’s multiple relationship we can look at when thinking about what environmental factors impact certain census groups. Some census groups may be exposed to higher amounts of pollutants compared to their neighbors."
+  },
+  {
+    "objectID": "blog/2023-12-15-la-holc-grade-inequality/index.html#footnotes",
+    "href": "blog/2023-12-15-la-holc-grade-inequality/index.html#footnotes",
+    "title": "Los Angeles County’s history with HOLC grade inequality",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMichell, B., & Franco, J. (2018, March 20). HOLC “redlining” maps: The persistent structure of segregation and economic inequality. https://ncrc.org/holc/ ↩︎↩︎"
   },
   {
     "objectID": "about.html",

@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -178,11 +197,37 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
+<p>During the 1930’s the Home Owners’ Loan Corporation (HOLC), as part of the New Deal, rated neighborhoods based on their perceived safety for real estate investment. Their ranking system, (A (green), B (blue), C (yellow), D (red)) was then used to block access to loans for home ownership. While it was used to promote financial stimulation, it consequentially has been used for racial segregation, a history that is still visible in the United states. Informally known as “redlining”, this practice has had widely-documented consequences not only for community wealth, but also health.<span class="citation" data-cites="gee2008">(<a href="#ref-gee2008" role="doc-biblioref">Gee 2008</a>)</span> Redlined neighborhoods have less greenery<span class="citation" data-cites="nardone2021">(<a href="#ref-nardone2021" role="doc-biblioref">Nardone et al. 2021</a>)</span> and are hotter than other neighborhoods.<span class="citation" data-cites="hoffman2020">(<a href="#ref-hoffman2020" role="doc-biblioref">Hoffman, Shandas, and Pendleton 2020</a>)</span></p>
+<p>The National Community Reinvestment Coalition released a document highlighting what the redlining community is, how it has affected certain communities, and the potential impact gentrification has on these communities. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This study was able to take a deep dive into how this segregation impacts minority groups and the lack of investment in these communities to bring positive change.</p>
+<p>This blog will cover a number of analysis including:</p>
+<ul>
+<li>Various environmental factors that can impact a community’s wellbeing</li>
+<li>How many census block group sites are in these redlining areas</li>
+<li>Impact on recreational activities based on HOLC grade groups</li>
+</ul>
+<p>There’s multiple relationship we can look at when thinking about what environmental factors impact certain census groups. Some census groups may be exposed to higher amounts of pollutants compared to their neighbors.</p>
+
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{park2023,
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gee2008" class="csl-entry" role="listitem">
+Gee, Gilbert C. 2008. <span>“A Multilevel Analysis of the Relationship Between Institutional and Individual Racial Discrimination and Health Status.”</span> <em>American Journal of Public Health</em> 98 (Supplement<span>_</span>1): S48–56. <a href="https://doi.org/10.2105/AJPH.98.Supplement_1.S48">https://doi.org/10.2105/AJPH.98.Supplement_1.S48</a>.
+</div>
+<div id="ref-hoffman2020" class="csl-entry" role="listitem">
+Hoffman, Jeremy S., Vivek Shandas, and Nicholas Pendleton. 2020. <span>“The Effects of Historical Housing Policies on Resident Exposure to Intra-Urban Heat: A Study of 108 US Urban Areas.”</span> <em>Climate (Basel)</em> 8 (1): 12–12.
+</div>
+<div id="ref-nardone2021" class="csl-entry" role="listitem">
+Nardone, Anthony, Kara E. Rudolph, Rachel Morello-Frosch, and Joan A. Casey. 2021. <span>“Redlines and Greenspace: The Relationship Between Historical Redlining and 2010 Greenspace Across the United States.”</span> <em>Environmental Health Perspectives</em> 129 (1): 017006. <a href="https://doi.org/10.1289/EHP7495">https://doi.org/10.1289/EHP7495</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Michell, B., &amp; Franco, J. (2018, March 20). HOLC “redlining” maps: The persistent structure of segregation and economic inequality. https://ncrc.org/holc/ ↩︎<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{park2023,
   author = {Park, Patty},
   title = {Los {Angeles} {County’s} History with {HOLC} Grade
     Inequality},

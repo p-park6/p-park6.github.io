@@ -32,4 +32,9 @@ This blog will cover a number of analysis including:
 -   Impact on recreational activities based on HOLC grade groups
 
 
+There's multiple relationship we can look at when thinking about what environmental factors impact certain census groups. Some census groups may be exposed to higher amounts of pollutants compared to their neighbors. 
+
+
+
+
 [^1]: Michell, B., & Franco, J. (2018, March 20). HOLC “redlining” maps: The persistent structure of segregation and economic inequality. https://ncrc.org/holc/ ↩

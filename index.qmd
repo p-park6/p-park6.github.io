@@ -13,7 +13,7 @@ about:
       href: https://github.com/p-park6
       icon: github
     - text: Email
-      href: mailto::p_park@ucsb.edu
+      href: mailto:p_park@ucsb.edu
       icon: envelope
 ---
 

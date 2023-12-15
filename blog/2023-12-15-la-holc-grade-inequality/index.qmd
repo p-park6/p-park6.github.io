@@ -1,0 +1,25 @@
+---
+title: "Los Angeles County's history with HOLC grade inequality"
+description: "A brief view of how HOLC grading propelled the inequality in Los Angeles County"
+author:
+  - name: Patty Park
+    url: https://p-park6.github.io/
+    #orcid
+    affiliation: MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+date: 12-15-2023
+categories: 
+  - R
+  - MEDS
+  - Geospatial
+bibliography: ../references.bib
+citation: 
+  url: https://p-park6.github.io/blog/2023-12-15-nitrogen-analysis/
+#image: images/image name
+draft: true
+---
+
+# Overview
+
+
+

@@ -39,15 +39,168 @@ This dataset that I downloaded came with four datasets. One dataset includes inf
 
 
 ## Data Exploration (or what's important about this dataset?)
-Before starting this project, I did a good amount of data exploration to understand what the data meant and what each column was representing.
+Before starting this project, I did a good amount of data exploration to understand what the data meant and what each column was representing. This dataset came with a metadata sheet that helped me understand what each column heading meant. However, the metadata was written in such a complex manner that it took me a couple of weeks to understand what it all meant.
+
+![](metadata.png){fig-alt="Image shows portion of text of what the metadata looks like."}
+
+Shown here is a snippit of what the metadata looks like. After a couple of readings through the metadata and doing my own research, I realized what each column header stood for in the datasets and how to use each column to accurately show the numbers.
+
+## Data Wrangling (basically shaping the data)
+Not much wrangling was done for this project as most of the data process was done by the researchers end. I did, however, had to add other datasets to get the information I needed in order to create my perfect infographic. These are the steps I took to shape the data:
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+#load in libraries
+library(tidyverse)
+library(states)
+library(maps)
+library(patchwork)
+library(scales)
+library(showtext)
+
+
+#load in data
+od_pooled <- read_csv("data/od_pooled.csv") #dataset technically not 'separated' by a specific factor
+
+# Most popular cities not separated by a certain factor
+top_ten_pooled <- od_pooled %>% #using od_pooled
+  select(o_cz_name, o_state_name, d_cz_name, d_state_name, n, n_tot_o, pool) %>%#select columns we are interested in, helps get rid of repeats
+  filter(d_cz_name == "Los Angeles") %>% 
+  distinct() %>% #gets rid of repeats in the dataset
+  slice_max(n, n = 10) %>%  #find the top 10 most popular cities if applicable
+  left_join(state_info, by = "o_state_name") %>%  #left join with state_info dataset to get regions of each state
+  mutate(n_formatted = number(n, big.mark = ",")) %>% 
+  #add coordinates to dataset to be able to map correctly
+  mutate(long = c(-118, -117, -122, -121, -88, -121, -112, -115, -122, -74),
+         lat = c(34, 33, 37, 38, 42, 37, 33, 36.3, 47, 40.5),
+         la_long = c(-118.001, -118, -118, -118, -118, -118, -118, -118, -118, -118),
+         la_lat = c(34, 34, 34, 34, 34, 34, 34, 34, 34, 34)
+  )
+
+#create new column that joins two columns and take out San Jose
+top_ten_pooled <- top_ten_pooled %>% 
+  unite("city_state", o_cz_name, state.abb, sep = "-", remove = FALSE)%>% 
+  filter(city_state != "San Jose-CA")
+
+
+#view wrangled dataset: uncomment to view dataset
+#View(top_ten_pooled)
+```
 
 
 # Creating the infographics (aka where the magic happens)
 
-The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it's important that the reader is able to understand what is going on when looking at it for the first 5 seconds.
+## Visual 1, Map
+The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it's important that the reader is able to understand what is going on when looking at it for the first 5 seconds. Below is the code and finish product I made to get the product I wanted:
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+#create first color palette
+col_pal_9 <- c("black", "#0C3A0C", "#135913", "#187218", "#1D8C1D", "#20AC20", "#2ADB2A", "#48FE48", "#8AED8A")
+
+#create second color palette
+col_pal_8 <- c("#0C3A0C", "#135913", "#187218", "#1D8C1D", "#20AC20", "#2ADB2A", "#8AED8A", "#9BD69B")
+```
+
+I started off by created the two color palettes that I'll be using for the whole dataset. This lets me get the color palette finished and also that I will not have to repeat the same text of code over and over. After setting my color palette, I went ahead and started building my map.
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+map <- top_ten_pooled %>% #piping from top_ten_pooled
+  ggplot(aes(long, lat)) + #have aes as long (x) and lat (y)
+  borders("state", col="grey30", fill="gainsboro") + #create map
+  geom_curve(aes(x=long, y=lat, xend=la_long, yend=la_lat, color = o_cz_name), #create ling segment
+             curvature = 0.1, 
+             alpha = 0.8, 
+             linewidth = 2, 
+             color = col_pal_9) +
+  geom_point(color=ifelse(top_ten_pooled$city_state %in% c("Los Angeles-CA"), "#2d4c75", "black"), 
+             size = 3, 
+             color = "black") + #create points and specify what color the LA point is verses for the others
+  coord_quickmap() #graph map
+```
+
+All this code above is to create the basis of the map and its relevant parts. Because I wanted to add labels onto the map to specify which city the points were representing, I used the function `geom_label` per city to help adjust where each label went. Because I did this function 9 times, I'll just add one example of what I did to achieve this task:
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+  #San Digeo------
+geom_label(aes(label = ifelse(city_state %in% 
+                                c("San Diego-CA"), top_ten_pooled$o_cz_name, NA)),
+           fill = "white",
+           color = "black",
+           alpha = 1, 
+           size = 5, 
+           force = 3,
+           show.legend = FALSE,
+           point.padding = 3,
+           nudge_y = -1.1,
+           nudge_x = 1,
+           arrow = arrow(length = unit(1, "cm")),
+           max.overlaps = 20) 
+```
+
+After, I went ahead and changed up the theme to make it very minimal for my final output:
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+  theme_void() + #have theme as void
+  #create theme to change layout of plot
+  theme(
+    legend.text = element_blank(),
+    legend.background = element_blank(),
+    legend.title = element_blank(),
+    legend.key = element_blank(),
+    legend.position = "none",
+    plot.background = element_rect(fill='transparent'),
+    plot.title = element_text(family = "merri", size = 25, color = "#201B22", hjust = 0),
+    plot.subtitle = element_text(family = "merri", face = "italic", size = 15, color = "#201B22", hjust = 0),
+    plot.margin = margin(r = 45, l = 45),
+    panel.border = element_blank(),
+    panel.background = element_blank()
+  )
+```
+
+![](map.png){fig-alt="Image shows map of United States with green lines from various cities coming toward Los Angeles."}
+
+And here is my final product for visualization 1! A simple but easy to understand map of which cities people are moving from to go to Los Angeles
+
+## Visual 2: Lollipop Graph
+
+I wanted the audience to understand how many people were coming from these cities to Los Angeles. To show this, I decided to create a lollipop graph to let the audience see which cities were more likely to move to Los Angeles.
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+#Graph two: amount of people moving to Los Angeles
+top_ten_lolli <- top_ten_pooled %>% #piping from top_ten_pooled
+  mutate(d_cz_name = forcats::fct_reorder(city_state, desc(n))) %>% #rearrange order
+  filter(city_state != "Los Angeles-CA") %>% #filter by taking out Los Angeles
+  ggplot(aes(x = city_state, #create the aes
+             y = n)) +
+  geom_segment(aes(x=d_cz_name, xend=d_cz_name, y=0, yend=n), #specify the length of each stick
+               size = 5, 
+               alpha = 1,
+               color = col_pal_8) +
+  geom_point(size= 10, #specify where the points are located on the graph
+             color= "#176417", 
+             fill=alpha("#8AD78A", 0.3), alpha=0.7, shape=21, stroke=2) +
+  geom_text(aes(label = n_formatted), vjust = -1.8, family = "merri", size = 6) + #add text showing the amount per lollipop graph
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  # Theme edits:
+  theme(axis.text.x = element_text(family = "merri", color = "grey30", size = 15, angle = 45, vjust = 1, hjust= 1), #change x axis font
+        axis.text.y = element_blank(), #take out y axis text
+        axis.title.y = element_blank(), #take out y axis title
+        panel.background = element_rect(fill='transparent', color = NA), #change background of graph to transparent
+        panel.grid = element_blank(), #take out grid
+        axis.title.x = element_blank(), #take out x axis title
+        axis.ticks = element_blank(), #take out tick marks
+        plot.margin = margin(l = 20), #extend the left margin out
+        plot.background = element_rect(fill = "transparent", color = NA) #make background transparent
+  ) 
+```
+
+![](top_ten_lolli.png){fig-alt="Image shows lollipop graph of how many people moved away from said city towards Los Angeles."}
+
+Here, the code was not as complex as the code for the map. In this visualization, I used the `theme()` function to my advantage to get rid of any parts of the graph that I thought was unnecessary toward the final iteration of the infographic. The audience can also clearly see the amount of people that moved away per city.
 
 
+## Visual 3: Bar Graph
 
+My third infographic I created was
 
 
 

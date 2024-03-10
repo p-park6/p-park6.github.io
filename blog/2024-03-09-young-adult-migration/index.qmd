@@ -191,6 +191,7 @@ top_ten_lolli <- top_ten_pooled %>% #piping from top_ten_pooled
         plot.margin = margin(l = 20), #extend the left margin out
         plot.background = element_rect(fill = "transparent", color = NA) #make background transparent
   ) 
+
 ```
 
 ![](top_ten_lolli.png){fig-alt="Image shows lollipop graph of how many people moved away from said city towards Los Angeles."}
@@ -200,8 +201,77 @@ Here, the code was not as complex as the code for the map. In this visualization
 
 ## Visual 3: Bar Graph
 
-My third infographic I created was
+My third infographic I created was a bar graph comparing the young adults that were already living in Los Angeles to the total amount of people that moved towards Los Angeles. To fully create this visualization, I created two bar graphs, one to represent Los Angeles, and on to represent all other cities combined which is represented as a stacked bar plot. Below is the code I created to achieve this visual:
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+#subset for only LA observation
+la_pooled <- top_ten_pooled[1,]
+
+#subset for all other observations
+migrate_pooled <- top_ten_pooled[2:9,] %>%
+  mutate(combined = "Cities Combined",
+         total_combined = "Total Population of Cities",
+         total = sum(top_ten_pooled$n))
+```
+
+```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+#create bar graph for LA population
+la_bar <- ggplot(data = la_pooled, aes(x = city_state, y = n)) + #specify what datasets and aes I want to look at
+  geom_col(width = 0.5, fill = "#1A4075") + #specify width of bar
+  scale_y_continuous(limits = c(0, 1800000)) + #set y axis to be consistent with other graph
+  geom_text(aes(label = n_formatted), vjust = -0.7) + #create a text label to show total population of LA
+  #edit theme to preference
+  theme(
+    panel.background = element_blank(), #take out panel
+    axis.title.x = element_blank(), #take out x axis title
+    axis.title.y = element_blank(), #take out y axis title
+    plot.title.position = "plot", #reposition plot title
+    axis.text.y = element_blank(), #take out y axis text
+    axis.text.x = element_text(size = 13), #change x axis font size
+    axis.ticks.y = element_blank(), #take out y axis ticks
+    axis.ticks.x = element_blank(), #take out x axis ticks
+    plot.background = element_rect(fill='transparent', color = NA), #make transparent
+    panel.border = element_blank(), #take out panel
+    panel.grid = element_blank(), #take out grid
+    plot.margin = margin(r = 1) #shift right side margin
+  )
 
 
+#create bar graph on combined cities population
+bot_cities_bar_controlled_y <- ggplot() +
+  geom_col(data = migrate_pooled, aes(fill = city_state, y = n, x = combined), width = 0.5, position = position_stack(vjust = 1), fill = col_pal_8) + #create columns to make them stack on top of each other
+  scale_y_continuous(limits = c(0, 1800000)) +  #set y axis to be consistent with other graph
+  guides(fill=guide_legend(title="Cities")) + #set titles 
+  annotate("text", x = 1, y=160000, label = "85,286") + #add label to show total combined population
+  #edit theme as before
+  theme(
+    panel.background = element_blank(),
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    plot.background = element_rect(fill='transparent', color=NA),
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(size = 13),
+    legend.title = element_text(size = 25),
+    legend.text = element_text(size = 20),
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "none",
+    panel.border = element_blank(),
+    panel.grid = element_blank()
+  )
 
+#combine the bar graphs with patchwork
+combined_bar <- (la_bar + bot_cities_bar_controlled_y) +
+  plot_annotation(theme = theme(plot.background = element_rect(fill='transparent', color=NA)))
+```
+
+![](combined_bar.png){fig-alt="Image shows two bar graphs, left is amount of young adults that stayed in Los Angeles, colored in blue, right is amount of young adults that moved to Los Angeles from said cities combined."}
+
+To fully create this infographic, I used the package `patchwork` to stitch together these two bar graphs with each other to get an easily comparable visualization between the two bars. Something of interest to note here is that the combination of all cities combined is not even 1/10 of Los Angeles's population that decided to stay there. It also shows the sheer size of the population of Los Angeles.
+
+## Finished product
+
+![](eds_240_infographic.png){fig-alt="Image shows an infographic detailing from what cities young adults are moving to Los Angeles. Towards the middle top of the graph, a map shows from what cities they are migrating to Los Angeles. On the left side below the map is a lollipop graph showing how many people migrated towareds Los Angeles. On the right side below the map is a bar graph comparing LA young people population with those that are migrating there from the cities of interest."}
+
+And here is our final product! After exporting the created visuals and using an online editing platform I was able to show my visualization here with additional explanations on what each visualizaton represents. 
 

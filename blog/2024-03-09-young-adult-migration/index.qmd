@@ -20,7 +20,7 @@ draft: true
 ---
 
 # Introduction
-  The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I viewed the data and 
+  The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I did my preliminary analysis of the data to help shape the questions I asked. This dataset, found on (migrationpatterns.org)[www.migrationpatterns.org]
   
   
   

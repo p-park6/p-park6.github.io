@@ -38,6 +38,10 @@ The [dataset](https://data.migrationpatterns.org/MigrationPatternsData.zip) I am
 This dataset that I downloaded came with four datasets. One dataset includes information on where the individuals have moved to separated by type of race. The second dataset includes information of where the individuals have moved to separated by income. The third dataset gets the two (race and income) and separates it by where the individual falls. For example if the individual was Asian and was in middle class, that is how they would be classified in the dataset. The fourth dataset does not separate the data by a certain factor and only states where the individual is from and where they ended up.
 
 
+## Data Exploration (or what's important about this dataset?)
+Before starting this project, I did a good amount of data exploration to understand what the data meant and what each column was representing.
+
+
 # Creating the infographics (aka where the magic happens)
 
 The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it's important that the reader is able to understand what is going on when looking at it for the first 5 seconds.

@@ -20,14 +20,31 @@ draft: true
 ---
 
 # Introduction
-  The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I did my preliminary analysis of the data to help shape the questions I asked. This dataset, found on (migrationpatterns.org)[www.migrationpatterns.org]
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I did my preliminary analysis of the data to help shape the questions I asked. This dataset, found on [migrationpatterns.org](www.migrationpatterns.org), details where young adults are from and where they choose to move to for their adult portion of their lives. This blog also serves to integrate key components of what makes an inforgraphic strong in each visualization. I also hopes that this helps inspire you to create your own infographic as well!
+
+# Questions in question
+
+For this project, I was curious in looking into migration patterns with in the US. I wasn’t too sure what aspect I wanted to look at with this question, so I began looking at various datasets. Looking through the datasets that offer information on where people moved, I stumbled across a dataset detailing the migration patterns of young adults. Being a young adult myself, I am interested to look at where those moved when they were my age. From this, I decided to ask the overarching question: “From what cities are young Adults moving to Los Angeles?”. I’ll be answering this main question by asking a number of subset questions: 
+**1. Where in the map are they coming from? (Map visualization)**
+**2. About how many people from the cities are moving to Los Angeles? (Lollipop Visualization)**
+**3. How does the total amount of these people that are moving from those cities compare to the population that are already living in Los Angeles? (bar graph visualization)**
+
+
+# Datasets of interest
+
+The [dataset](https://data.migrationpatterns.org/MigrationPatternsData.zip) I am using is provided by the United States Census Bureau, which the data was then explored and wrangled by researchers from Harvard University and the US Census Bureau. This data was then used for a project hosted on migrationpatterns.org to look at where young people are moving to see the potential impacts on the labor market. Here, the user can filter by income, race, or all together. Users can also hover over each county and get additional information of the amount of people that is coming to or from that county. However, when using the web interface, understanding the information shown is not very intuitive. I wanted to find a way to show this information in a more streamlined way, in which, this infographic was born.
+
+This dataset that I downloaded came with four datasets. One dataset includes information on where the individuals have moved to separated by type of race. The second dataset includes information of where the individuals have moved to separated by income. The third dataset gets the two (race and income) and separates it by where the individual falls. For example if the individual was Asian and was in middle class, that is how they would be classified in the dataset. The fourth dataset does not separate the data by a certain factor and only states where the individual is from and where they ended up.
+
+
+# Creating the infographics (aka where the magic happens)
+
+The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it's important that the reader is able to understand what is going on when looking at it for the first 5 seconds.
+
+
+
+
+
+
+

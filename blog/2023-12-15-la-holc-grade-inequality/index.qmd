@@ -39,9 +39,9 @@ We will be working with data from the United States Environmental Protection Age
 
 According to the [US EPA website](https://www.epa.gov/ejscreen/purposes-and-uses-ejscreen):
 
-> This screening tool and data may be of interest to community residents or other stakeholders as they search for environmental or demographic information. It can also support a wide range of research and policy goals. The public has used EJScreen in many different locations and in many different ways.
->
-> EPA is sharing EJScreen with the public: - to be more transparent about how we consider environmental justice in our work, - to assist our stakeholders in making informed decisions about pursuing environmental justice and, - to create a common starting point between the agency and the public when looking at issues related to environmental justice.
+"This screening tool and data may be of interest to community residents or other stakeholders as they search for environmental or demographic information. It can also support a wide range of research and policy goals. The public has used EJScreen in many different locations and in many different ways.
+
+EPA is sharing EJScreen with the public: - to be more transparent about how we consider environmental justice in our work, - to assist our stakeholders in making informed decisions about pursuing environmental justice and, - to create a common starting point between the agency and the public when looking at issues related to environmental justice."
 
 EJScreen provides on environmental and demographic information for the US at the Census [tract](https://en.wikipedia.org/wiki/Census_tract) and [block group](https://en.wikipedia.org/wiki/Census_block_group) levels. This blog will be working with block group data that has been downloaded from the [EPA site](https://www.epa.gov/ejscreen/download-ejscreen-data).
 

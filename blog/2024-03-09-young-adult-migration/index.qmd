@@ -1,0 +1,33 @@
+---
+title: "Visualizing the Migration Patterns of Young Adults in the United States"
+description: "A deeper dive looking into why young adults are choosing to live in Los Angeles"
+author:
+  - name: Patty Park
+    url: https://p-park6.github.io/
+    #orcid
+    affiliation: MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+date: 03-09-2024
+categories: 
+  - quarto
+  - visualization
+  - infographic
+bibliography: ../references.bib
+citation: 
+  url: https://p-park6.github.io/blog/2024-03-09-young-adult-migration/
+#image: images/image name
+draft: true
+---
+
+# Introduction
+  The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I viewed the data and 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

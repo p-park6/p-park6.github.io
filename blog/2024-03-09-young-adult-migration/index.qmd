@@ -15,15 +15,15 @@ categories:
 bibliography: ../references.bib
 citation: 
   url: https://p-park6.github.io/blog/2024-03-09-young-adult-migration/
-#image: images/image name
-draft: true
+image: eds_240_infographic.png
+#draft: true
 ---
 
 # Introduction
 
 The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I'll also detail how I did my preliminary analysis of the data to help shape the questions I asked. This dataset, found on [migrationpatterns.org](www.migrationpatterns.org), details where young adults are from and where they choose to move to for their adult portion of their lives. This blog also serves to integrate key components of what makes an inforgraphic strong in each visualization. I also hopes that this helps inspire you to create your own infographic as well!
 
-# Questions in question
+# Questions (in question)
 
 For this project, I was curious in looking into migration patterns with in the US. I wasn’t too sure what aspect I wanted to look at with this question, so I began looking at various datasets. Looking through the datasets that offer information on where people moved, I stumbled across a dataset detailing the migration patterns of young adults. Being a young adult myself, I am interested to look at where those moved when they were my age. From this, I decided to ask the overarching question: “From what cities are young Adults moving to Los Angeles?”. I’ll be answering this main question by asking a number of subset questions: 
 **1. Where in the map are they coming from? (Map visualization)**
@@ -48,7 +48,7 @@ Shown here is a snippit of what the metadata looks like. After a couple of readi
 ## Data Wrangling (basically shaping the data)
 Not much wrangling was done for this project as most of the data process was done by the researchers end. I did, however, had to add other datasets to get the information I needed in order to create my perfect infographic. These are the steps I took to shape the data:
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE}
 #load in libraries
 library(tidyverse)
 library(states)
@@ -92,7 +92,7 @@ top_ten_pooled <- top_ten_pooled %>%
 ## Visual 1, Map
 The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it's important that the reader is able to understand what is going on when looking at it for the first 5 seconds. Below is the code and finish product I made to get the product I wanted:
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
 #create first color palette
 col_pal_9 <- c("black", "#0C3A0C", "#135913", "#187218", "#1D8C1D", "#20AC20", "#2ADB2A", "#48FE48", "#8AED8A")
 
@@ -102,7 +102,7 @@ col_pal_8 <- c("#0C3A0C", "#135913", "#187218", "#1D8C1D", "#20AC20", "#2ADB2A",
 
 I started off by created the two color palettes that I'll be using for the whole dataset. This lets me get the color palette finished and also that I will not have to repeat the same text of code over and over. After setting my color palette, I went ahead and started building my map.
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
 map <- top_ten_pooled %>% #piping from top_ten_pooled
   ggplot(aes(long, lat)) + #have aes as long (x) and lat (y)
   borders("state", col="grey30", fill="gainsboro") + #create map
@@ -119,7 +119,7 @@ map <- top_ten_pooled %>% #piping from top_ten_pooled
 
 All this code above is to create the basis of the map and its relevant parts. Because I wanted to add labels onto the map to specify which city the points were representing, I used the function `geom_label` per city to help adjust where each label went. Because I did this function 9 times, I'll just add one example of what I did to achieve this task:
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
   #San Digeo------
 geom_label(aes(label = ifelse(city_state %in% 
                                 c("San Diego-CA"), top_ten_pooled$o_cz_name, NA)),
@@ -138,7 +138,7 @@ geom_label(aes(label = ifelse(city_state %in%
 
 After, I went ahead and changed up the theme to make it very minimal for my final output:
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
   theme_void() + #have theme as void
   #create theme to change layout of plot
   theme(
@@ -164,7 +164,7 @@ And here is my final product for visualization 1! A simple but easy to understan
 
 I wanted the audience to understand how many people were coming from these cities to Los Angeles. To show this, I decided to create a lollipop graph to let the audience see which cities were more likely to move to Los Angeles.
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
 #Graph two: amount of people moving to Los Angeles
 top_ten_lolli <- top_ten_pooled %>% #piping from top_ten_pooled
   mutate(d_cz_name = forcats::fct_reorder(city_state, desc(n))) %>% #rearrange order
@@ -203,7 +203,7 @@ Here, the code was not as complex as the code for the map. In this visualization
 
 My third infographic I created was a bar graph comparing the young adults that were already living in Los Angeles to the total amount of people that moved towards Los Angeles. To fully create this visualization, I created two bar graphs, one to represent Los Angeles, and on to represent all other cities combined which is represented as a stacked bar plot. Below is the code I created to achieve this visual:
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
 #subset for only LA observation
 la_pooled <- top_ten_pooled[1,]
 
@@ -214,7 +214,7 @@ migrate_pooled <- top_ten_pooled[2:9,] %>%
          total = sum(top_ten_pooled$n))
 ```
 
-```{r, eval = false, warning=FALSE, message=FALSE, code-fold: true}
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
 #create bar graph for LA population
 la_bar <- ggplot(data = la_pooled, aes(x = city_state, y = n)) + #specify what datasets and aes I want to look at
   geom_col(width = 0.5, fill = "#1A4075") + #specify width of bar
@@ -273,5 +273,40 @@ To fully create this infographic, I used the package `patchwork` to stitch toget
 
 ![](eds_240_infographic.png){fig-alt="Image shows an infographic detailing from what cities young adults are moving to Los Angeles. Towards the middle top of the graph, a map shows from what cities they are migrating to Los Angeles. On the left side below the map is a lollipop graph showing how many people migrated towareds Los Angeles. On the right side below the map is a bar graph comparing LA young people population with those that are migrating there from the cities of interest."}
 
-And here is our final product! After exporting the created visuals and using an online editing platform I was able to show my visualization here with additional explanations on what each visualizaton represents. 
+And here is our final product! After exporting the created visuals and using an online editing platform I was able to show my visualization here with additional explanations on what each visualization represents and make sure that the audience accurately understood the message each visualization was trying to convey. And I also hope that you were able to learn more on the process of how an infographic is created! A lot of time is spent trying to understand the data you are trying to visualize and coding each visualization also takes much time as well!
+
+## Guidelines I followed
+
+When creating these sets of visualizations, I adhered to these guidelines that were given to me by my Data Visualization instructor to make sure I create a superb visualization. Here are all the guidelines that I followed:
+
+**1. Graphic Form**
+	I decided to choose visualizations that would help the audience pick up on what type of message was being told. My first visualization is a map that shows the location of a specific city in question being connected to Los Angeles, the city that was of interest. This would give a visual sense of what types of connections I was making and let the reader know that I wanted to convey a message of moving from one city to the next.
+
+**2. Text**
+	Most of the text relating to each plot were almost omitted. I created a couple of versions that included a plot with a title and a plot without the title. I decided to stick with the plots that did not have a title as it was easier to build my infographic as well as giving my infographic a clean, minimal look. The additions of plots with additional text made the infographic look clunky with having too much information posted per plot.
+
+**3. Themes**
+		Compared to the theme that ggplot automatically render, I decided to change the theme completely by taking out almost parts that make up a graph to get just the graphic. This consisted of setting the theme to using both theme_void and by manually editing the theme function to my what I wanted my end graphic to look like. Once I was left with the graphic, I used that to build my infographic and added in informational text to explain each graphic.
+		
+**4. Colors**
+	Color theme was a tricky subject for this project as I didn’t know how to best convey the message as well as connect each plot with each other as they were all intertwined. One thought I had for the color scheme was to make each color related to the city it was tied with. However, I did not go through with that plan as some of the cities had overlapping colors and no color that defined that city. I ended up going with a color gradient to show that each datapoint is connected to each other by being a city as well as being able to easily connect each plot to the other graphs.
+	
+**5. Typography**
+	Since this was a travel related infographic, I wanted the text to be clean, but also inspire travel vibes. I decided to go with the font Merriweather as it has a newspaper like feel with it. To me, newspapers are associated with travel as it brings you news from all over the world right to your doorstep. The audience would feel like they are reading a newsletter they got in the mail and are then inspired to plan their next travel trip.
+	
+**6. General Design**
+	As I have been alluding to in the previous parts, my main goal was to make the infographic as clean and clear as possible. Because of this, I wanted to add visualizations that were easy to understand from a glance with minimal but necessary text. The first infographic that the reader would see is the map. I made sure that the map was big enough on the page so that the reader would be drawn to the map first and foremost. I put the lollipop graph and bar graph right next to each other as these are also informative graphs but are not as important as the map graph. The lollipop graph is put on the left side as most read from left to right, and I want the reader to look at the lollipop graph second, and the bar graph third. These are the main designs that I chose to implement for this infographic.
+
+**7. Contextualizing your Data**
+	I wanted the reader to understand the data being shown on the infographic easily, so I did so by minimizing any unnecessary parts of the graph that the reader could get distracted with. The text bubbles are written to add context to the created graphic. For example, I tried to see how these plots would look like with a labeled y axis. But once I did that, it added clutter to the overall infographic which led me to created the text bubbles to compliment each graphic.
+	
+**8. Centering your Primary Message**
+	Since my topic is on migration patterns in America, I wanted to make sure that the reader could clearly follow the message that I wanted to convey to them. I wanted to make sure that my primary questions, “From what cities are young people moving to Los Angeles?” was answered in well and concise. Creating the map as a centerpiece became one of the main ways that I was able to center my primary message.
+	
+**9. Considering Accessibility**
+	Because of the red green colorblindness that exist in the population, I made sure that I did not add the color red in my infographic. Overall, my infographic only uses the colors green and blue, which are not in any color blindness combination. I also made sure to add alt text that was informative enough to explain each graphic of the infographic. I also made sure to make the alt text not too long as when screen readers are used in these situations, it cannot go back and re-read a sentence.
+
+**10, Applying a DEI Lens to my Design**
+	The main people that are being looked at in this infographic are the Young People of America. I wanted to make sure that they were being accurately represented. I did so by looking at the cities that had the most amount of people that were moving to Los Angeles. From the data wrangling and data viewing that I did with my dataset, most of these cities that did move towards Los Angeles included a diverse population. This meant I could be more certain that I was fairly representing the young adult population well and not over representing a certain race
+
 

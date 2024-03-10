@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Patty Park">
+<meta name="dcterms.date" content="2024-03-09">
+<meta name="description" content="A deeper dive looking into why young adults are choosing to live in Los Angeles">
+
+<title>Patricia Park - Visualizing the Migration Patterns of Young Adults in the United States</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Patricia Park</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html" rel="" target="">
+ <span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Blog_file.html" rel="" target="">
+ <span class="menu-text">Blogs</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Visualizing the Migration Patterns of Young Adults in the United States</h1>
+                  <div>
+        <div class="description">
+          A deeper dive looking into why young adults are choosing to live in Los Angeles
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">quarto</div>
+                <div class="quarto-category">visualization</div>
+                <div class="quarto-category">infographic</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://p-park6.github.io/">Patty Park</a> </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science">
+              MEDS
+              </a>
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 9, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#questions-in-question" id="toc-questions-in-question" class="nav-link" data-scroll-target="#questions-in-question">Questions (in question)</a></li>
+  <li><a href="#datasets-of-interest" id="toc-datasets-of-interest" class="nav-link" data-scroll-target="#datasets-of-interest">Datasets of interest</a>
+  <ul class="collapse">
+  <li><a href="#data-exploration-or-whats-important-about-this-dataset" id="toc-data-exploration-or-whats-important-about-this-dataset" class="nav-link" data-scroll-target="#data-exploration-or-whats-important-about-this-dataset">Data Exploration (or what’s important about this dataset?)</a></li>
+  <li><a href="#data-wrangling-basically-shaping-the-data" id="toc-data-wrangling-basically-shaping-the-data" class="nav-link" data-scroll-target="#data-wrangling-basically-shaping-the-data">Data Wrangling (basically shaping the data)</a></li>
+  </ul></li>
+  <li><a href="#creating-the-infographics-aka-where-the-magic-happens" id="toc-creating-the-infographics-aka-where-the-magic-happens" class="nav-link" data-scroll-target="#creating-the-infographics-aka-where-the-magic-happens">Creating the infographics (aka where the magic happens)</a>
+  <ul class="collapse">
+  <li><a href="#visual-1-map" id="toc-visual-1-map" class="nav-link" data-scroll-target="#visual-1-map">Visual 1, Map</a></li>
+  <li><a href="#visual-2-lollipop-graph" id="toc-visual-2-lollipop-graph" class="nav-link" data-scroll-target="#visual-2-lollipop-graph">Visual 2: Lollipop Graph</a></li>
+  <li><a href="#visual-3-bar-graph" id="toc-visual-3-bar-graph" class="nav-link" data-scroll-target="#visual-3-bar-graph">Visual 3: Bar Graph</a></li>
+  <li><a href="#finished-product" id="toc-finished-product" class="nav-link" data-scroll-target="#finished-product">Finished product</a></li>
+  <li><a href="#guidelines-i-followed" id="toc-guidelines-i-followed" class="nav-link" data-scroll-target="#guidelines-i-followed">Guidelines I followed</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The intention of this blog post is to show the steps I took to create my final infographic piece. This blog will detail the steps I took to create each infographic piece. I’ll also detail how I did my preliminary analysis of the data to help shape the questions I asked. This dataset, found on <a href="www.migrationpatterns.org">migrationpatterns.org</a>, details where young adults are from and where they choose to move to for their adult portion of their lives. This blog also serves to integrate key components of what makes an inforgraphic strong in each visualization. I also hopes that this helps inspire you to create your own infographic as well!</p>
+</section>
+<section id="questions-in-question" class="level1">
+<h1>Questions (in question)</h1>
+<p>For this project, I was curious in looking into migration patterns with in the US. I wasn’t too sure what aspect I wanted to look at with this question, so I began looking at various datasets. Looking through the datasets that offer information on where people moved, I stumbled across a dataset detailing the migration patterns of young adults. Being a young adult myself, I am interested to look at where those moved when they were my age. From this, I decided to ask the overarching question: “From what cities are young Adults moving to Los Angeles?”. I’ll be answering this main question by asking a number of subset questions: <strong>1. Where in the map are they coming from? (Map visualization)</strong> <strong>2. About how many people from the cities are moving to Los Angeles? (Lollipop Visualization)</strong> <strong>3. How does the total amount of these people that are moving from those cities compare to the population that are already living in Los Angeles? (bar graph visualization)</strong></p>
+</section>
+<section id="datasets-of-interest" class="level1">
+<h1>Datasets of interest</h1>
+<p>The <a href="https://data.migrationpatterns.org/MigrationPatternsData.zip">dataset</a> I am using is provided by the United States Census Bureau, which the data was then explored and wrangled by researchers from Harvard University and the US Census Bureau. This data was then used for a project hosted on migrationpatterns.org to look at where young people are moving to see the potential impacts on the labor market. Here, the user can filter by income, race, or all together. Users can also hover over each county and get additional information of the amount of people that is coming to or from that county. However, when using the web interface, understanding the information shown is not very intuitive. I wanted to find a way to show this information in a more streamlined way, in which, this infographic was born.</p>
+<p>This dataset that I downloaded came with four datasets. One dataset includes information on where the individuals have moved to separated by type of race. The second dataset includes information of where the individuals have moved to separated by income. The third dataset gets the two (race and income) and separates it by where the individual falls. For example if the individual was Asian and was in middle class, that is how they would be classified in the dataset. The fourth dataset does not separate the data by a certain factor and only states where the individual is from and where they ended up.</p>
+<section id="data-exploration-or-whats-important-about-this-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration-or-whats-important-about-this-dataset">Data Exploration (or what’s important about this dataset?)</h2>
+<p>Before starting this project, I did a good amount of data exploration to understand what the data meant and what each column was representing. This dataset came with a metadata sheet that helped me understand what each column heading meant. However, the metadata was written in such a complex manner that it took me a couple of weeks to understand what it all meant.</p>
+<p><img src="metadata.png" class="img-fluid" alt="Image shows portion of text of what the metadata looks like."></p>
+<p>Shown here is a snippit of what the metadata looks like. After a couple of readings through the metadata and doing my own research, I realized what each column header stood for in the datasets and how to use each column to accurately show the numbers.</p>
+</section>
+<section id="data-wrangling-basically-shaping-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-basically-shaping-the-data">Data Wrangling (basically shaping the data)</h2>
+<p>Not much wrangling was done for this project as most of the data process was done by the researchers end. I did, however, had to add other datasets to get the information I needed in order to create my perfect infographic. These are the steps I took to shape the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(states)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#load in data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>od_pooled <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/od_pooled.csv"</span>) <span class="co">#dataset technically not 'separated' by a specific factor</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Most popular cities not separated by a certain factor</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>top_ten_pooled <span class="ot">&lt;-</span> od_pooled <span class="sc">%&gt;%</span> <span class="co">#using od_pooled</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(o_cz_name, o_state_name, d_cz_name, d_state_name, n, n_tot_o, pool) <span class="sc">%&gt;%</span><span class="co">#select columns we are interested in, helps get rid of repeats</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(d_cz_name <span class="sc">==</span> <span class="st">"Los Angeles"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> <span class="co">#gets rid of repeats in the dataset</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span>  <span class="co">#find the top 10 most popular cities if applicable</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(state_info, <span class="at">by =</span> <span class="st">"o_state_name"</span>) <span class="sc">%&gt;%</span>  <span class="co">#left join with state_info dataset to get regions of each state</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_formatted =</span> <span class="fu">number</span>(n, <span class="at">big.mark =</span> <span class="st">","</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">#add coordinates to dataset to be able to map correctly</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">117</span>, <span class="sc">-</span><span class="dv">122</span>, <span class="sc">-</span><span class="dv">121</span>, <span class="sc">-</span><span class="dv">88</span>, <span class="sc">-</span><span class="dv">121</span>, <span class="sc">-</span><span class="dv">112</span>, <span class="sc">-</span><span class="dv">115</span>, <span class="sc">-</span><span class="dv">122</span>, <span class="sc">-</span><span class="dv">74</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">33</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">42</span>, <span class="dv">37</span>, <span class="dv">33</span>, <span class="fl">36.3</span>, <span class="dv">47</span>, <span class="fl">40.5</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">la_long =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">118.001</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>, <span class="sc">-</span><span class="dv">118</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">la_lat =</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#create new column that joins two columns and take out San Jose</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>top_ten_pooled <span class="ot">&lt;-</span> top_ten_pooled <span class="sc">%&gt;%</span> </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"city_state"</span>, o_cz_name, state.abb, <span class="at">sep =</span> <span class="st">"-"</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(city_state <span class="sc">!=</span> <span class="st">"San Jose-CA"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#view wrangled dataset: uncomment to view dataset</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#View(top_ten_pooled)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-the-infographics-aka-where-the-magic-happens" class="level1">
+<h1>Creating the infographics (aka where the magic happens)</h1>
+<section id="visual-1-map" class="level2">
+<h2 class="anchored" data-anchor-id="visual-1-map">Visual 1, Map</h2>
+<p>The first visual I will be creating is the map portion of the infographic. Because my question hinges on which cities have the most migration to Los Angeles, it’s important that the reader is able to understand what is going on when looking at it for the first 5 seconds. Below is the code and finish product I made to get the product I wanted:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create first color palette</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>col_pal_9 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"#0C3A0C"</span>, <span class="st">"#135913"</span>, <span class="st">"#187218"</span>, <span class="st">"#1D8C1D"</span>, <span class="st">"#20AC20"</span>, <span class="st">"#2ADB2A"</span>, <span class="st">"#48FE48"</span>, <span class="st">"#8AED8A"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#create second color palette</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>col_pal_8 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#0C3A0C"</span>, <span class="st">"#135913"</span>, <span class="st">"#187218"</span>, <span class="st">"#1D8C1D"</span>, <span class="st">"#20AC20"</span>, <span class="st">"#2ADB2A"</span>, <span class="st">"#8AED8A"</span>, <span class="st">"#9BD69B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I started off by created the two color palettes that I’ll be using for the whole dataset. This lets me get the color palette finished and also that I will not have to repeat the same text of code over and over. After setting my color palette, I went ahead and started building my map.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> top_ten_pooled <span class="sc">%&gt;%</span> <span class="co">#piping from top_ten_pooled</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(long, lat)) <span class="sc">+</span> <span class="co">#have aes as long (x) and lat (y)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">borders</span>(<span class="st">"state"</span>, <span class="at">col=</span><span class="st">"grey30"</span>, <span class="at">fill=</span><span class="st">"gainsboro"</span>) <span class="sc">+</span> <span class="co">#create map</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_curve</span>(<span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">xend=</span>la_long, <span class="at">yend=</span>la_lat, <span class="at">color =</span> o_cz_name), <span class="co">#create ling segment</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">curvature =</span> <span class="fl">0.1</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.8</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">2</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> col_pal_9) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="fu">ifelse</span>(top_ten_pooled<span class="sc">$</span>city_state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Los Angeles-CA"</span>), <span class="st">"#2d4c75"</span>, <span class="st">"black"</span>), </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> <span class="co">#create points and specify what color the LA point is verses for the others</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="co">#graph map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All this code above is to create the basis of the map and its relevant parts. Because I wanted to add labels onto the map to specify which city the points were representing, I used the function <code>geom_label</code> per city to help adjust where each label went. Because I did this function 9 times, I’ll just add one example of what I did to achieve this task:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#San Digeo------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">ifelse</span>(city_state <span class="sc">%in%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="st">"San Diego-CA"</span>), top_ten_pooled<span class="sc">$</span>o_cz_name, <span class="cn">NA</span>)),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"white"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="dv">1</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">5</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">force =</span> <span class="dv">3</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">point.padding =</span> <span class="dv">3</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">nudge_y =</span> <span class="sc">-</span><span class="fl">1.1</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">nudge_x =</span> <span class="dv">1</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>)),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">max.overlaps =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After, I went ahead and changed up the theme to make it very minimal for my final output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="co">#have theme as void</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create theme to change layout of plot</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">'transparent'</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"merri"</span>, <span class="at">size =</span> <span class="dv">25</span>, <span class="at">color =</span> <span class="st">"#201B22"</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"merri"</span>, <span class="at">face =</span> <span class="st">"italic"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">color =</span> <span class="st">"#201B22"</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">45</span>, <span class="at">l =</span> <span class="dv">45</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="map.png" class="img-fluid" alt="Image shows map of United States with green lines from various cities coming toward Los Angeles."></p>
+<p>And here is my final product for visualization 1! A simple but easy to understand map of which cities people are moving from to go to Los Angeles</p>
+</section>
+<section id="visual-2-lollipop-graph" class="level2">
+<h2 class="anchored" data-anchor-id="visual-2-lollipop-graph">Visual 2: Lollipop Graph</h2>
+<p>I wanted the audience to understand how many people were coming from these cities to Los Angeles. To show this, I decided to create a lollipop graph to let the audience see which cities were more likely to move to Los Angeles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Graph two: amount of people moving to Los Angeles</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>top_ten_lolli <span class="ot">&lt;-</span> top_ten_pooled <span class="sc">%&gt;%</span> <span class="co">#piping from top_ten_pooled</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">d_cz_name =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(city_state, <span class="fu">desc</span>(n))) <span class="sc">%&gt;%</span> <span class="co">#rearrange order</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(city_state <span class="sc">!=</span> <span class="st">"Los Angeles-CA"</span>) <span class="sc">%&gt;%</span> <span class="co">#filter by taking out Los Angeles</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> city_state, <span class="co">#create the aes</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span>d_cz_name, <span class="at">xend=</span>d_cz_name, <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend=</span>n), <span class="co">#specify the length of each stick</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">5</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="dv">1</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> col_pal_8) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span> <span class="dv">10</span>, <span class="co">#specify where the points are located on the graph</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">color=</span> <span class="st">"#176417"</span>, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">"#8AD78A"</span>, <span class="fl">0.3</span>), <span class="at">alpha=</span><span class="fl">0.7</span>, <span class="at">shape=</span><span class="dv">21</span>, <span class="at">stroke=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n_formatted), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.8</span>, <span class="at">family =</span> <span class="st">"merri"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span> <span class="co">#add text showing the amount per lollipop graph</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Theme edits:</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"merri"</span>, <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust=</span> <span class="dv">1</span>), <span class="co">#change x axis font</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(), <span class="co">#take out y axis text</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="co">#take out y axis title</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">'transparent'</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co">#change background of graph to transparent</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="co">#take out grid</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), <span class="co">#take out x axis title</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), <span class="co">#take out tick marks</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">20</span>), <span class="co">#extend the left margin out</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="co">#make background transparent</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="top_ten_lolli.png" class="img-fluid" alt="Image shows lollipop graph of how many people moved away from said city towards Los Angeles."></p>
+<p>Here, the code was not as complex as the code for the map. In this visualization, I used the <code>theme()</code> function to my advantage to get rid of any parts of the graph that I thought was unnecessary toward the final iteration of the infographic. The audience can also clearly see the amount of people that moved away per city.</p>
+</section>
+<section id="visual-3-bar-graph" class="level2">
+<h2 class="anchored" data-anchor-id="visual-3-bar-graph">Visual 3: Bar Graph</h2>
+<p>My third infographic I created was a bar graph comparing the young adults that were already living in Los Angeles to the total amount of people that moved towards Los Angeles. To fully create this visualization, I created two bar graphs, one to represent Los Angeles, and on to represent all other cities combined which is represented as a stacked bar plot. Below is the code I created to achieve this visual:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset for only LA observation</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>la_pooled <span class="ot">&lt;-</span> top_ten_pooled[<span class="dv">1</span>,]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subset for all other observations</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>migrate_pooled <span class="ot">&lt;-</span> top_ten_pooled[<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>,] <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">combined =</span> <span class="st">"Cities Combined"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_combined =</span> <span class="st">"Total Population of Cities"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">total =</span> <span class="fu">sum</span>(top_ten_pooled<span class="sc">$</span>n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create bar graph for LA population</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>la_bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> la_pooled, <span class="fu">aes</span>(<span class="at">x =</span> city_state, <span class="at">y =</span> n)) <span class="sc">+</span> <span class="co">#specify what datasets and aes I want to look at</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"#1A4075"</span>) <span class="sc">+</span> <span class="co">#specify width of bar</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1800000</span>)) <span class="sc">+</span> <span class="co">#set y axis to be consistent with other graph</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n_formatted), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.7</span>) <span class="sc">+</span> <span class="co">#create a text label to show total population of LA</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#edit theme to preference</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co">#take out panel</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), <span class="co">#take out x axis title</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="co">#take out y axis title</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>, <span class="co">#reposition plot title</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(), <span class="co">#take out y axis text</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>), <span class="co">#change x axis font size</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(), <span class="co">#take out y axis ticks</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(), <span class="co">#take out x axis ticks</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">'transparent'</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co">#make transparent</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(), <span class="co">#take out panel</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="co">#take out grid</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">1</span>) <span class="co">#shift right side margin</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#create bar graph on combined cities population</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>bot_cities_bar_controlled_y <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> migrate_pooled, <span class="fu">aes</span>(<span class="at">fill =</span> city_state, <span class="at">y =</span> n, <span class="at">x =</span> combined), <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="dv">1</span>), <span class="at">fill =</span> col_pal_8) <span class="sc">+</span> <span class="co">#create columns to make them stack on top of each other</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1800000</span>)) <span class="sc">+</span>  <span class="co">#set y axis to be consistent with other graph</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">"Cities"</span>)) <span class="sc">+</span> <span class="co">#set titles </span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y=</span><span class="dv">160000</span>, <span class="at">label =</span> <span class="st">"85,286"</span>) <span class="sc">+</span> <span class="co">#add label to show total combined population</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">#edit theme as before</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">'transparent'</span>, <span class="at">color=</span><span class="cn">NA</span>),</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>),</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>),</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co">#combine the bar graphs with patchwork</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>combined_bar <span class="ot">&lt;-</span> (la_bar <span class="sc">+</span> bot_cities_bar_controlled_y) <span class="sc">+</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">'transparent'</span>, <span class="at">color=</span><span class="cn">NA</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="combined_bar.png" class="img-fluid" alt="Image shows two bar graphs, left is amount of young adults that stayed in Los Angeles, colored in blue, right is amount of young adults that moved to Los Angeles from said cities combined."></p>
+<p>To fully create this infographic, I used the package <code>patchwork</code> to stitch together these two bar graphs with each other to get an easily comparable visualization between the two bars. Something of interest to note here is that the combination of all cities combined is not even 1/10 of Los Angeles’s population that decided to stay there. It also shows the sheer size of the population of Los Angeles.</p>
+</section>
+<section id="finished-product" class="level2">
+<h2 class="anchored" data-anchor-id="finished-product">Finished product</h2>
+<p><img src="eds_240_infographic.png" class="img-fluid" alt="Image shows an infographic detailing from what cities young adults are moving to Los Angeles. Towards the middle top of the graph, a map shows from what cities they are migrating to Los Angeles. On the left side below the map is a lollipop graph showing how many people migrated towareds Los Angeles. On the right side below the map is a bar graph comparing LA young people population with those that are migrating there from the cities of interest."></p>
+<p>And here is our final product! After exporting the created visuals and using an online editing platform I was able to show my visualization here with additional explanations on what each visualization represents and make sure that the audience accurately understood the message each visualization was trying to convey. And I also hope that you were able to learn more on the process of how an infographic is created! A lot of time is spent trying to understand the data you are trying to visualize and coding each visualization also takes much time as well!</p>
+</section>
+<section id="guidelines-i-followed" class="level2">
+<h2 class="anchored" data-anchor-id="guidelines-i-followed">Guidelines I followed</h2>
+<p>When creating these sets of visualizations, I adhered to these guidelines that were given to me by my Data Visualization instructor to make sure I create a superb visualization. Here are all the guidelines that I followed:</p>
+<p><strong>1. Graphic Form</strong> I decided to choose visualizations that would help the audience pick up on what type of message was being told. My first visualization is a map that shows the location of a specific city in question being connected to Los Angeles, the city that was of interest. This would give a visual sense of what types of connections I was making and let the reader know that I wanted to convey a message of moving from one city to the next.</p>
+<p><strong>2. Text</strong> Most of the text relating to each plot were almost omitted. I created a couple of versions that included a plot with a title and a plot without the title. I decided to stick with the plots that did not have a title as it was easier to build my infographic as well as giving my infographic a clean, minimal look. The additions of plots with additional text made the infographic look clunky with having too much information posted per plot.</p>
+<p><strong>3. Themes</strong> Compared to the theme that ggplot automatically render, I decided to change the theme completely by taking out almost parts that make up a graph to get just the graphic. This consisted of setting the theme to using both theme_void and by manually editing the theme function to my what I wanted my end graphic to look like. Once I was left with the graphic, I used that to build my infographic and added in informational text to explain each graphic.</p>
+<p><strong>4. Colors</strong> Color theme was a tricky subject for this project as I didn’t know how to best convey the message as well as connect each plot with each other as they were all intertwined. One thought I had for the color scheme was to make each color related to the city it was tied with. However, I did not go through with that plan as some of the cities had overlapping colors and no color that defined that city. I ended up going with a color gradient to show that each datapoint is connected to each other by being a city as well as being able to easily connect each plot to the other graphs.</p>
+<p><strong>5. Typography</strong> Since this was a travel related infographic, I wanted the text to be clean, but also inspire travel vibes. I decided to go with the font Merriweather as it has a newspaper like feel with it. To me, newspapers are associated with travel as it brings you news from all over the world right to your doorstep. The audience would feel like they are reading a newsletter they got in the mail and are then inspired to plan their next travel trip.</p>
+<p><strong>6. General Design</strong> As I have been alluding to in the previous parts, my main goal was to make the infographic as clean and clear as possible. Because of this, I wanted to add visualizations that were easy to understand from a glance with minimal but necessary text. The first infographic that the reader would see is the map. I made sure that the map was big enough on the page so that the reader would be drawn to the map first and foremost. I put the lollipop graph and bar graph right next to each other as these are also informative graphs but are not as important as the map graph. The lollipop graph is put on the left side as most read from left to right, and I want the reader to look at the lollipop graph second, and the bar graph third. These are the main designs that I chose to implement for this infographic.</p>
+<p><strong>7. Contextualizing your Data</strong> I wanted the reader to understand the data being shown on the infographic easily, so I did so by minimizing any unnecessary parts of the graph that the reader could get distracted with. The text bubbles are written to add context to the created graphic. For example, I tried to see how these plots would look like with a labeled y axis. But once I did that, it added clutter to the overall infographic which led me to created the text bubbles to compliment each graphic.</p>
+<p><strong>8. Centering your Primary Message</strong> Since my topic is on migration patterns in America, I wanted to make sure that the reader could clearly follow the message that I wanted to convey to them. I wanted to make sure that my primary questions, “From what cities are young people moving to Los Angeles?” was answered in well and concise. Creating the map as a centerpiece became one of the main ways that I was able to center my primary message.</p>
+<p><strong>9. Considering Accessibility</strong> Because of the red green colorblindness that exist in the population, I made sure that I did not add the color red in my infographic. Overall, my infographic only uses the colors green and blue, which are not in any color blindness combination. I also made sure to add alt text that was informative enough to explain each graphic of the infographic. I also made sure to make the alt text not too long as when screen readers are used in these situations, it cannot go back and re-read a sentence.</p>
+<p><strong>10, Applying a DEI Lens to my Design</strong> The main people that are being looked at in this infographic are the Young People of America. I wanted to make sure that they were being accurately represented. I did so by looking at the cities that had the most amount of people that were moving to Los Angeles. From the data wrangling and data viewing that I did with my dataset, most of these cities that did move towards Los Angeles included a diverse population. This meant I could be more certain that I was fairly representing the young adult population well and not over representing a certain race</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{park2024,
+  author = {Park, Patty},
+  title = {Visualizing the {Migration} {Patterns} of {Young} {Adults} in
+    the {United} {States}},
+  date = {2024-03-09},
+  url = {https://p-park6.github.io/blog/2024-03-09-young-adult-migration/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-park2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Park, Patty. 2024. <span>“Visualizing the Migration Patterns of Young
+Adults in the United States.”</span> March 9, 2024. <a href="https://p-park6.github.io/blog/2024-03-09-young-adult-migration/">https://p-park6.github.io/blog/2024-03-09-young-adult-migration/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

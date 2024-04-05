@@ -20,13 +20,16 @@ $gray: #64605f;
 $lavender: #D9D2DB;
 $orange: #ad7237;
 $black: #000000;
+$english-violet: #413644;
+$seashell: #FBF2EE;
+$english-violet-2: #57495B;
 
 // Base document colors
-$navbar-bg: $lavender; // navbar
-$navbar-fg: $dark-green; // navbar foreground elements
-$navbar-hl: $gray; // highlight color when hovering over navbar links
-$body-bg: $ivory; // page background 
-$body-color: $black; // page text 
+$navbar-bg: $english-violet-2; // navbar
+$navbar-fg: $seashell; // navbar foreground elements
+$navbar-hl: $lavender; // highlight color when hovering over navbar links
+$body-bg: $english-violet; // page background 
+$body-color: $seashell; // page text 
 $footer-bg: $ivory; // footer 
 $link-color: $gray; // hyperlinks 
 

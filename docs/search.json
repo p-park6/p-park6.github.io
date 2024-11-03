@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "I am a recent Graduate student at the Bren School of Environmental Science and Management, and have finished up their data science program. I have learned a whole arsenal of tools as a novice data scientist such as geospatial analysis, machine learning, and data visualization.\nDuring my time here at Bren, I have completed a capstone project, which focuses on easier access to Climate Dataset models. My team and I used these climate datasets to help visualize possible extreme predictions for the Channel Island sanctuary in a web application format.\nIn my spare time, I love to bake and write letters! I love to try out new cookie recipes (which also gives me an excuse to spoil my sweet tooth). I also love writing letters to friends who are not in the same city as me! I’ve been more picky about the pens that I use to write these letters, so shoot me a message if you have any pen recommendations!"
   },
   {
     "objectID": "blog/2023-12-12-aqi-thomas-fire/index.html",
@@ -130,20 +130,20 @@
     "href": "index.html",
     "title": "Patricia Park",
     "section": "",
-    "text": "Hi, my name is Patty and welcome to my website! I’ll be updating this website to showcase the projects that I worked on as well as what I’ll be doing in the future! Keep checking back to see what’s new!"
+    "text": "Welcome! I’m a recent Bren School graduate and data science enthusiast, skilled in geospatial analysis, machine learning, and data visualization. Explore my journey into the world of data-driven environmental solutions!"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Patricia Park",
     "section": "Education",
-    "text": "Education\nBS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)\nMEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)"
+    "text": "Education\n\nBS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)\nMEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)"
   },
   {
     "objectID": "index.html#projects",
     "href": "index.html#projects",
     "title": "Patricia Park",
     "section": "Projects",
-    "text": "Projects\nComing soon!"
+    "text": "Projects\n\nDevelopment of an Interactive Visualization and Training Toolkit for Climate Impacts on the Channel Islands National Marine Sanctuary\nThis project focused on developing an educational toolkit and an interactive, Python-based web application to visualize ecologically significant climate variables within Channel Islands and Southern California.\nRepository | Project Information\n2024 MTA Open Data Challenge\nNew York’s public tranportation data was used to create a data visualization on the rider’s wait time for the bus. This was done for the New York’s MTA open data challenge, during October 2024.\nRepository"
   }
 ]

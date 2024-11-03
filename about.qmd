@@ -1,9 +1,13 @@
 ---
 title: "About"
+image: pics/graduation.jpg
+about:
+  template: broadside
+  image-width: 20em
 ---
 
-About this site
+I am a recent Graduate student at the Bren School of Environmental Science and Management, and have finished up their data science program. I have learned a whole arsenal of tools as a novice data scientist such as geospatial analysis, machine learning, and data visualization. 
 
-```{r}
-1 + 1
-```
+During my time here at Bren, I have completed a capstone project, which focuses on easier access to Climate Dataset models. My team and I used these climate datasets to help visualize possible extreme predictions for the Channel Island sanctuary in a web application format.
+
+In my spare time, I love to bake and write letters! I love to try out new cookie recipes (which also gives me an excuse to spoil my sweet tooth). I also love writing letters to friends who are not in the same city as me! I've been more picky about the pens that I use to write these letters, so shoot me a message if you have any pen recommendations!

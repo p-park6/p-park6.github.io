@@ -1,10 +1,11 @@
 ---
 title: "Patricia Park"
-image: pics/headshot_image.jpg
+image: pics/Patty_Park_MEDS2023.jpg
+toc: false
 about:
-  template: jolla
+  template: solana
   image-shape: rectangle
-  image-width: 15em
+  image-width: 17em
   links: 
     - text: LinkedIn
       href: https://www.linkedin.com/in/patricia-park-548810221
@@ -17,14 +18,23 @@ about:
       icon: envelope
 ---
 
-Hi, my name is Patty and welcome to my website! I'll be updating this website to showcase the projects that I worked on as well as what I'll be doing in the future! Keep checking back to see what's new!
+Welcome! I’m a recent Bren School graduate and data science enthusiast, skilled in geospatial analysis, machine learning, and data visualization. Explore my journey into the world of data-driven environmental solutions!
 
 ## Education
+- BS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)
 
-BS Environmental Studies at University of California, Santa Barbara (Grad. date: 2021)
-
-MEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)
+- MEDS Environmental Data Science at University of California, Santa Barbara (Grad. date: 2024)
 
 ## Projects
+- **Development of an Interactive Visualization and Training Toolkit for Climate Impacts on the Channel Islands National Marine Sanctuary**
 
-Coming soon!
+  This project focused on developing an educational toolkit and an interactive, Python-based web application to visualize ecologically significant climate variables within Channel Islands and Southern California.
+
+  [Repository](https://github.com/Channelislanders) | [Project Information](https://bren.ucsb.edu/projects/development-interactive-visualization-and-training-toolkit-climate-impacts-channel-islands)
+  
+  
+- **2024 MTA Open Data Challenge**
+
+  New York's public tranportation data was used to create a data visualization on the rider's wait time for the bus. This was done for the New York's MTA open data challenge, during October 2024.
+  
+  [Repository](https://github.com/hazelvaq/MTA_data_challenge)
